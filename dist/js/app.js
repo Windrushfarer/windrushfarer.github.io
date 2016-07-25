@@ -14,7 +14,8 @@ var Options = {
         //Set the min-height of the content and sidebar based on the
         //the height of the document.
         if ($("body").hasClass("fixed")) {
-            $(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
+            $(".content-wrapper").css('min-height', window_height - $('.main-footer').outerHeight());
+            $(".profile-wrapper").css('min-height', window_height - $('.main-footer').outerHeight());
         } else {
             var postSetWidth;
             if (window_height >= sidebar_height) {
@@ -29,6 +30,14 @@ var Options = {
     }
 };
 Options.activate();
+
+$(".user-panel").click(function() {
+    $(".profile-wrapper").show();
+});
+
+$(".profile-wrapper").click(function () {
+    $(this).hide();
+});
 
 //Angular
 var app = angular.module('testApp', []);
